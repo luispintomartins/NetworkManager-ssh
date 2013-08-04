@@ -13,6 +13,7 @@ uidir = $(datadir)/gnome-vpn-properties/ssh
 ui_DATA = nm-ssh-dialog.ui
 
 libnm_ssh_properties_la_CFLAGS =                    \
+        $(GLIB_CFLAGS)                                   \
         $(GTK_CFLAGS)                                   \
         $(NM_CFLAGS)                       \
         $(GNOMEKEYRING_CFLAGS)                          \

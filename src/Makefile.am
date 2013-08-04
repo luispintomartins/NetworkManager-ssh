@@ -1,4 +1,5 @@
 AM_CPPFLAGS = \
+	$(GLIB_CFLAGS)                                   \
 	$(DBUS_CFLAGS) \
 	$(NM_CFLAGS) \
 	$(GIO_CFLAGS) \

@@ -28,7 +28,7 @@ endif
 
 nm-ssh-service.name: $(srcdir)/nm-ssh-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
-	    -e 's|[@]LIBDIR[@]|$(libdir)|g' \
+	    -e 's|[@]PLUGINDIR[@]|$(libdir)/NetworkManager|g' \
 	    $< >$@
 
 DISTCHECK_CONFIGURE_FLAGS = --with-tests=yes

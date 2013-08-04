@@ -5,5 +5,5 @@ program=@LIBEXECDIR@/nm-ssh-service
 
 [GNOME]
 auth-dialog=@LIBEXECDIR@/nm-ssh-auth-dialog
-properties=libnm-ssh-properties
-
+properties=@LIBDIR@/libnm-ssh-properties
+supports-external-ui-mode=true

@@ -23,6 +23,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- \
 		--libexecdir=/usr/lib/NetworkManager \
 		--disable-static \
+		--without-ipv6 \
 		--with-gtkver=3
 
 override_dh_makeshlibs:

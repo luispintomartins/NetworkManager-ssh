@@ -742,14 +742,16 @@ add_ssh_extra_opts (GPtrArray *args, const char *extra_opts)
 	gchar      **iter;
 
 	/* Needs to separate arguements nicely */
-	extra_opts_split = g_strsplit (extra_opts, " ", 256);
+	extra_opts_split = g_regex_split_simple ("\"(.*?)\"|(\\S+)", extra_opts, 0, 0);
 	iter = extra_opts_split;
 
-	/* Ensure it's a valid DNS name or IP address */
-	while (*iter) {
-		g_message("%s", *iter);
-		add_ssh_arg (args, *iter);
-		iter++;
+	/* Print arguments to log */
+	g_message(" SSH Extra Options");
+	for (; *iter; iter++) {
+		if ((strlen(*iter) > 0) && (g_strcmp0 (*iter, " ") != 0)) {
+			g_message("%s", *iter);
+			add_ssh_arg (args, *iter);
+		}
 	}
 	g_strfreev (extra_opts_split);
 }
